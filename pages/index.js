@@ -23,6 +23,7 @@ export default function Home() {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         setOutput(data.output)
         setConverting(false)
       })
@@ -64,6 +65,7 @@ export default function Home() {
                 }}
 
                 value={input}
+                required
                
                 />
 
@@ -77,12 +79,12 @@ export default function Home() {
           </form>
           {/* output text area div  */}
           {output &&
-          <div className="flex flex-col min-h-min w-1/2 p-2 border mx-auto rounded-lg border-gray-700 gap-8">
+          <div className="flex flex-col min-h-min min-w-min p-2 border mx-auto rounded-lg border-gray-700 gap-8">
             <div className="flex flex-row text-center">
               <h2 className="text-xl text-white">CSS Output</h2>
             </div>
             <div className="bg-gray-700 p-2 flex flex-col">
-              <code className="text-white" lang="css">
+              <code className="text-white" lang="html">
                 {output}
               </code>
             </div>
