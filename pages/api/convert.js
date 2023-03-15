@@ -1,9 +1,10 @@
 import fetch from "isomorphic-unfetch";
 
 const translateToCSS = async (query, apiKey) => {
-  let prompt = `Convert this description into Tailwind CSS:\n\n"${query}"\n\nTailwind CSS:`;
+  let prompt = `Convert input into Tailwind CSS. Do not explain the response. input: ${query}`;
+
   
-  console.log(prompt);
+  
   const response = await fetch("https://api.openai.com/v1/completions", {
     method: "POST",
     headers: {
@@ -15,7 +16,7 @@ const translateToCSS = async (query, apiKey) => {
       temperature: 0.5,
       max_tokens: 2048,
       n: 1,
-      stop: "\n",
+      
       model: "text-davinci-003",
       frequency_penalty: 0.5,
       presence_penalty: 0.5,
@@ -24,7 +25,7 @@ const translateToCSS = async (query, apiKey) => {
   });
 
   const data = await response.json();
-  console.log(data);
+  console.log(data)
   if (!response.ok) {
     console.log(response);
     throw new Error(data.error || "Error translating to CSS.");
@@ -44,6 +45,7 @@ if (!process.env.OPENAI_API_KEY) {
 export default async function handler(req,res) {
 
     const { input } = req.body
+    console.log(input)
     const output = await translateToCSS(input, process.env.OPENAI_API_KEY);
     res.status(200).json({ output });
 
