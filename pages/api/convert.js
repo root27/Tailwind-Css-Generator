@@ -1,7 +1,7 @@
 import fetch from "isomorphic-unfetch";
 
 const translateToCSS = async (query, apiKey) => {
-  let prompt = `Convert input into Tailwind CSS. Do not explain the response. input: ${query}`;
+  let prompt = `Create html and Tailwind CSS for input. input: ${query}`;
 
   
   
@@ -16,7 +16,7 @@ const translateToCSS = async (query, apiKey) => {
       temperature: 0.5,
       max_tokens: 2048,
       n: 1,
-      
+      // stop: "/n",
       model: "text-davinci-003",
       frequency_penalty: 0.5,
       presence_penalty: 0.5,
