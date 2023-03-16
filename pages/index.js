@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useState } from 'react'
-import ReactHtmlParser from "react-html-parser";
+import parse from 'html-react-parser';
+
 
 export default function Home() {
 
@@ -54,7 +55,7 @@ export default function Home() {
           </div>
           <form onSubmit={(event) => {handleEvent(event)}}>
           <div className="flex flex-row align-center min-w-min border-2 rounded-lg border-gray-700
-            min-h-min p-3 gap-8 items-center sm:w-1/2 md:w-1/3
+            min-h-min p-3 gap-8 items-center sm:w-1/2 md:w-1/3 
           ">{/* input text area div  */}
             
               <input type="text
@@ -80,7 +81,7 @@ export default function Home() {
           {/* output text area div  */}
           {output &&
           <>
-          <div className="flex flex-col min-h-min min-w-min p-2 border mx-auto rounded-lg border-gray-700 gap-8 overflow-scroll">
+          <div className="flex flex-col min-h-min min-w-min lg:w-1/2 p-2 border mx-auto rounded-lg border-gray-700 gap-8 overflow-scroll">
             <div className="flex flex-row text-center">
               <h2 className="text-xl text-white">CSS Output</h2>
             </div>
@@ -95,7 +96,7 @@ export default function Home() {
            {ReactHtmlParser(output)}
 
           </div> */}
-          {ReactHtmlParser(output)}
+          {parse(output)}
 
           </>
           }
