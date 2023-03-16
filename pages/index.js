@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useState } from 'react'
-
+import ReactHtmlParser from "react-html-parser";
 
 export default function Home() {
 
@@ -79,7 +79,8 @@ export default function Home() {
           </form>
           {/* output text area div  */}
           {output &&
-          <div className="flex flex-col min-h-min min-w-min p-2 border mx-auto rounded-lg border-gray-700 gap-8">
+          <>
+          <div className="flex flex-col min-h-min min-w-min p-2 border mx-auto rounded-lg border-gray-700 gap-8 overflow-scroll">
             <div className="flex flex-row text-center">
               <h2 className="text-xl text-white">CSS Output</h2>
             </div>
@@ -90,6 +91,13 @@ export default function Home() {
             </div>
 
           </div>
+          {/* <div className="bg-white mx-auto  h-64 overflow-scroll  flex flex-col justify-center text-center">
+           {ReactHtmlParser(output)}
+
+          </div> */}
+          {ReactHtmlParser(output)}
+
+          </>
           }
 
         </div>
