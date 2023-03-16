@@ -1,7 +1,7 @@
 import fetch from "isomorphic-unfetch";
 
 const translateToCSS = async (query, apiKey) => {
-  let prompt = `Create html and Tailwind CSS for input. input: ${query}`;
+  let prompt = `Create html and Tailwind CSS with jsx compatible for input. input: ${query}`;
 
   
   

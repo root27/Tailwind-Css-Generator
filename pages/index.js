@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useState } from 'react'
-import parse from 'html-react-parser';
+// import parse from 'html-react-parser';
 
 
 export default function Home() {
@@ -96,7 +96,7 @@ export default function Home() {
            {ReactHtmlParser(output)}
 
           </div> */}
-          {parse(output)}
+         
 
           </>
           }
